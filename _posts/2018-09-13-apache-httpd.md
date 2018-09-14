@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Apache httpd.conf
+title: Apache 
 date: 2018-09-10 10:40:00 -0600
 ---
 아파치 설정 파일 정리
@@ -79,6 +79,7 @@ SSLCertificateChainFile "/home/apache/conf/ssl/XX.crt"
 하나의 웹서버에서 2개 이상의 여러 개의 웹서버를 운영하는것
 #### 운영방법
  * 도메인네임 기반 가상 호스트
+ 
 ```
 <VirtualHost 192.168.1.1>
 ServerName	alpha.linux.org
@@ -88,7 +89,9 @@ ServerName	alpha.linux.org
 ServerName delta.linux.org
 ...
 ```
+
  * IP 주소 기반 가상 호스트
+ 
  ```
 <VirtualHost 192.168.1.1>
 ServerName	alpha.linux.org
@@ -96,9 +99,10 @@ ServerName	alpha.linux.org
 </VirtualHost>
 <VirtualHost 192.168.1.2>
 ServerName delta.linux.org
- ```
+```
 
  * 포트 기반 가상 호스트
+
  ```
  <VirtualHost *:80>
  ...
