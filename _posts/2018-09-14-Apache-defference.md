@@ -36,7 +36,7 @@ SSLSessionCache: 'shmcb' session cache not supported (known names: ). Maybe you 
     Order deny,allow
     Deny from all
 </Directory>
-<Directory "/home1/irteam/deploy/clean-campaign/doc_base">
+<Directory "/home/workspace/project/doc">
     Options Indexes FollowSymLinks
     AllowOverride None
     Order allow,deny
@@ -52,7 +52,7 @@ SSLSessionCache: 'shmcb' session cache not supported (known names: ). Maybe you 
     AllowOverride none
     Require all denied
 </Directory>
-<Directory "/home1/irteam/deploy/clean-campaign/doc_base">
+<Directory "/home/workspace/project/doc">
     Options Indexes FollowSymLinks
     AllowOverride None
     Require all granted
