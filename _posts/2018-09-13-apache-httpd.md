@@ -5,7 +5,7 @@ date: 2018-09-10 10:40:00 -0600
 ---
 아파치 설정 파일 정리
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+
 
 # httpd.conf
 ### ServerRoot path 
