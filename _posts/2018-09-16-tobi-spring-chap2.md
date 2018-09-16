@@ -33,6 +33,7 @@ date: 2018-09-16 22:10:00 -0600
 
 ### 1장 테스트 코드 개선 하기
  1장에서의 테스트 코드
+ 
  ![1장테스트코드](/images/chap1_testcode.png)
 
 #### 문제점
@@ -40,6 +41,7 @@ date: 2018-09-16 22:10:00 -0600
  - 실행작업의 번거로움 (main 메소드를 계속 실행해야함 테스트가 많을경우 일일히 수행해야함)
 
 #### 테스트 검증의 자동화
+
  ![2장테스트검증자동화](/images/chap2_automatic1.png)
 
 테스트의 수행의 자동화에서 테스트 값 적용, 결과를 검증하는것까지 자동화 함으로써 UserDao의 두가지 기능이 정상적으로 동작하는지를 언제든지 쉽게 확인할 수 있다.
@@ -51,6 +53,7 @@ main 메소드만으로 테스트 하기에는 한계가 있으므로 테스트 
 
 #### JUnit 적용하기
  자바에서 제공하는 테스트를 위한 도구
+ 
  ![기존코드Junit으로변경](/images/chap2_automatic2.png)
 
  - 다른 main 메소드에서 JUnitCore를 통해 실행 시킬수 있음.
@@ -66,19 +69,24 @@ JUnitCore.main("com.nts.spring.study.pp1.UserTest");
  단위테스트는 코드의 변경사항이 없다면 테스트는 항상 동일한 결과를 내야 한다(외부 환경에 영향을 받지 말아야함)
 
  - 이를 위해 deleteAll 과 getCount 기능을 추가한다. 
+ 
  ![일관성을 위한 테스트 코드](/images/chap2_automatic3.png)
 
  이런 방법보다 뒤에서 설명한다고 하는데 트랜잭션을 말하는 것 같다. 현 단계에서는 아직 안함
 
  - 테스트는 한가지의 결과만 검증하고 마는 것은 상당히 위험함 조금더 보강된 테스트 가 필요
+ 
     ![보강된 테스트 코드](/images/chap2_automatic4.png "addAndGet의 보강된 테스트")
+    
     ![보강된 테스트 코드](/images/chap2_automatic5.png "getCount의 보강된 테스트")
 
  - get() 메소드 실행시 데이터가 없을때
  * null이나 특정 값을 return 하거나 예외를 발생시킴. 책에서는 예외를 발생시키는 것으로
+ 
  ![예외 던짐 테스트](/images/chap2_exceptionTest1.png "get의 예외던짐 테스트")
 
  이것만 추가 하면 당연히 테스트는 실패한다 dao에 예외를 던진다고 하지 않았으니 말이다. 이 테스트를 통과 시키기 위해 UserDao를 수정 한다.
+ 
   ![예외 던짐 테스트DAO 수정](/images/chap2_exceptionTest2.png "get의 예외던짐 테스트")
 
  테스트를 작성할 때 부정적인 케이스를 먼저 만드는 습관을 들이는게 좋다. 왜냐면 개발자는 항상 잘 돌아가는 케이스를 생각하면서 코드를 만드는 것이 일반적이고 이때문에 테스트를 작성할때에도 교묘히 실패할만한 케이스를 피하면서 작성하기 때문이다. 그래서 이런 변명이 잘 나온다 "내 PC에서는 잘되는데..."
@@ -106,6 +114,7 @@ JUnitCore.main("com.nts.spring.study.pp1.UserTest");
 테스트를 수행하는 데 필요한 정보나 오브젝트
 현 과정에서 UserDaoTest에서는 dao가 각 테스트 메소드에서 많이 사용되는 User 오브젝트들을 말함
 이러한 픽스쳐들은 @Before 에서 생성하도록 만듬
+
  ![픽스쳐 및 Before 사용](/images/chap2_junit.png "get의 예외던짐 테스트")
 
 ### 스프링  테스트 적용
@@ -115,6 +124,7 @@ JUnitCore.main("com.nts.spring.study.pp1.UserTest");
 
 @Autowired : 스프링DI에 사용되는 특별한 어노테이션. VOL.2에서 자세히....
  - 동일한 타입의 bean이 2개 이상 있는 경우에는 변수의 이름과 같은 이름의 빈이 있는지 확인하고 변수이름으로도 찾을 수 없는 경우 예외 발생
+ 
  ![spring app context  간편 적용](/images/chap2_springTest.png )
 
 #### DI와 테스트
@@ -125,9 +135,11 @@ JUnitCore.main("com.nts.spring.study.pp1.UserTest");
 
 #### test 환경에 알맞는 DI를 설정하는 방법
 1. @DirtiesContext 테스트 메소드에서 애플리케이션 컨텍스트의 구성이나 상태를 변경한다는것을 테스트 컨텍스트 프레임워크에 알려주고, DI 부분만 직접 추가
+
 ![spring app context  간편 적용](/images/chap2_springTest2.png )
 
 2. 다른 설정 파일을 만들어서 적용 : 테스트용 config 을 만들어서 적용
+
 ![spring app context  간편 적용](/images/chap2_springTest3.png )
 
 3. 컨테이너 없는 DI 테스트 : 직접적으로 DI를 직접 행함
