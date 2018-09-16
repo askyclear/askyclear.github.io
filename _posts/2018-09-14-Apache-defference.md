@@ -5,7 +5,7 @@ date: 2018-09-10 10:40:00 -0600
 ---
 아파치 2.2.x 와 2.4.x의 차이
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+
 
 
 # apache-2.2.x 와 apache-2.4.x 의 차이
