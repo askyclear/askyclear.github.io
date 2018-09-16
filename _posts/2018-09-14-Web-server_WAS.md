@@ -17,3 +17,7 @@ Web Server 와 WAS
 #### Web Server와 WAS를 분리하여 사용하는 이유
 
 WAS에서 정적인 콘텐츠와 동적인 콘텐츠를 두개다 제공하게 되면 두개의 처리를 동시에 하기 때문에 최적화 측면에서 그다지 바람직하지 않다. 그래서 Web Server와 WAS를 분리하여 HTML, CSS, JS파일을 Web Server에서 처리하게 하고 동적인 웹 애플리케이션 처리는 WAS에서 하게 분리하여 효과적으로 분산처리 하게 하는 것이다.
+
+![아키테쳐](/images/web_app_architecture.png "웹어플아키테쳐")
+
+이미지 출처 : https://cybersecuritynews.co.uk/popular-web-application-attacks-and-recommendations/
