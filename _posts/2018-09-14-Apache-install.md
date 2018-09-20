@@ -83,7 +83,6 @@ make install
 <IfModule mod_jk.c>
 # 어떤 경로로 요청이 오면 어디로 보낼것인가
 JkMount /*.jsp tomcat
-JkMount /*.nhn tomcat
 JkMount /jkmanager/* jkstatus
 JkMountCopy All
 <Location /jkmanager/>
